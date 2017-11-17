@@ -14,39 +14,4 @@ The end result allows for documentation to be generated for header parameters su
 
 which will generate a section in the documentation like this
 
-<dl>
-<div style="background-color:#f6f8fa; padding:10px">
-<h3>Header Parameters</h3>
-        
-    <table style="background-color:#f6f8fa">
-        <thead>
-            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td>user</td>
-                    <td>
-                        <p>The user name of the person requesting access</p>
-                    </td>
-                    <td>
-                        String
-                    </td>
-                    <td>
-                            <p>None.</p>
- 
-                    </td>
-                </tr>
-                <tr>
-                    <td>pass</td>
-                    <td>
-                        <p>The password of the person requesting access</p>
-                    </td>
-                    <td>
-                        String
-                    </td>
-                    <td>
-                         <p>None.</p>
-                    </td>
-                </tr>
-        </tbody>
-    </table><br></div></dl>
+![example](example.png)
