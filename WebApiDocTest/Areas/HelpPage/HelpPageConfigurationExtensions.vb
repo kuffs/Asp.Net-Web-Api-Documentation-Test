@@ -235,6 +235,11 @@ Namespace Areas.HelpPage
                 .ApiDescription = apiDescription
             }
 
+            Dim hp As IHeaderParameterProvider = config.Services.GetDocumentationProvider
+            If hp IsNot Nothing Then
+                apiModel.HeaderParameters = hp.GetHeaderParameters(apiDescription.ActionDescriptor)
+            End If
+
             Dim sampleGenerator As HelpPageSampleGenerator = config.GetHelpPageSampleGenerator()
             Dim modelGenerator As ModelDescriptionGenerator = config.GetModelDescriptionGenerator()
             GenerateUriParameters(apiModel, modelGenerator)

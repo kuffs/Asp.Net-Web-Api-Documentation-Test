@@ -1,4 +1,5 @@
 Imports System
+Imports System.Collections.ObjectModel
 Imports System.Globalization
 Imports System.Linq
 Imports System.Reflection
@@ -14,6 +15,7 @@ Namespace Areas.HelpPage
     Public Class XmlDocumentationProvider
         Implements IDocumentationProvider
         Implements IModelDocumentationProvider
+        Implements IHeaderParameterProvider
 
         Private _documentNavigator As XPathNavigator
         Private Const TypeExpression As String = "/doc/members/member[@name='T:{0}']"
@@ -135,6 +137,31 @@ Namespace Areas.HelpPage
             End If
 
             Return name
+        End Function
+
+        Public Function GetHeaderParameters(descriptor As HttpActionDescriptor) As Collection(Of ParameterDescription) Implements IHeaderParameterProvider.GetHeaderParameters
+            Dim params = New Collection(Of ParameterDescription)
+
+            Dim methodNode = GetMethodNode(descriptor)
+            If (methodNode IsNot Nothing) Then
+
+                Dim headers As XPathNodeIterator = methodNode.Select("header")
+
+                While headers.MoveNext
+
+                    Dim node As XPathNavigator = headers.Current
+
+                    params.Add(New ParameterDescription With {
+                        .Name = node.GetAttribute("name", ""),
+                        .TypeDescription = New SimpleTypeModelDescription() With {.Name = "String", .Documentation = "String", .ModelType = GetType(System.String)},
+                        .Documentation = node.Value
+                    })
+                End While
+
+            End If
+
+
+            Return params
         End Function
     End Class
 End Namespace

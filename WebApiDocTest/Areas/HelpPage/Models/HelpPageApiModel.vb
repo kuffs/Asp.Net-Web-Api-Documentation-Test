@@ -14,6 +14,7 @@ Namespace Areas.HelpPage.Models
         Private _errorMessages As Collection(Of String)
         Private _apiDescription As ApiDescription
         Private _uriParameters As Collection(Of ParameterDescription)
+        Private _headerParameters As Collection(Of ParameterDescription)
         Private _requestModelDescription As ModelDescription
         Private _resourceDescription As ModelDescription
         Private _requestDocumentation As String
@@ -40,6 +41,15 @@ Namespace Areas.HelpPage.Models
             End Set
         End Property
 
+
+        Public Property HeaderParameters() As Collection(Of ParameterDescription)
+            Get
+                Return _headerParameters
+            End Get
+            Set(value As Collection(Of ParameterDescription))
+                _headerParameters = value
+            End Set
+        End Property
 
         ''' <summary>
         ''' Gets or sets the <see cref="ParameterDescription"/> collection that describes the URI parameters for the API.

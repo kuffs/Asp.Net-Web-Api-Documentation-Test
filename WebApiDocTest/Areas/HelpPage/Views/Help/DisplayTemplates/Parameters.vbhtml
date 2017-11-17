@@ -6,7 +6,7 @@
 
 @If Model.Count > 0 Then
     @<table class="help-page-table">
-        <thead>
+        <thead class="bluebox">
             <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
         </thead>
         <tbody>

@@ -31,16 +31,18 @@ Namespace Areas.HelpPage
             Justification:="Part of a URI.")>
         Public Sub Register(config As HttpConfiguration)
             '' Uncomment the following to use the documentation from XML documentation file.
-            'config.SetDocumentationProvider(New XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")))
+            config.SetDocumentationProvider(New XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/WebApiDocTest.xml")))
 
             '' Uncomment the following to use "sample string" as the sample for all actions that have string as the body parameter or return type.
             '' Also, the string arrays will be used for IEnumerable(Of String). The sample objects will be serialized into different media type 
             '' formats by the available formatters.
-            'config.SetSampleObjects(New Dictionary(Of Type, Object) From
-            '{
-            '     {GetType(String), "sample string"},
-            '     {GetType(IEnumerable(Of String)), New String() {"sample 1", "sample 2"}}
-            '})
+            config.SetSampleObjects(New Dictionary(Of Type, Object) From
+            {
+                 {GetType(StaffMember), New StaffMember With {.ID = 100, .Name = "Joanne Bloggs", .ApiKey = Guid.NewGuid.ToString}},
+                 {GetType(String), "sample string"},
+                 {GetType(IEnumerable(Of String)), New String() {"sample 1", "sample 2"}}
+            })
+
 
             ' Extend the following to provide factories for types not handled automatically (those lacking parameterless
             ' constructors) or for which you prefer to use non-default property values. Line below provides a fallback

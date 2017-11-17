@@ -21,8 +21,8 @@ End Code
         @Html.DisplayFor(Function(m) m.UriParameters, "Parameters")
 
 
-        @*<h3>Header Parameters</h3>
-        @Html.DisplayFor(Function(m) m.HeaderParameters, "Parameters")*@
+        <h3>Header Parameters</h3>
+        @Html.DisplayFor(Function(m) m.HeaderParameters, "Parameters")
 
         <h3>Body Parameters</h3>
 
