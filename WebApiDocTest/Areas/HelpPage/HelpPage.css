@@ -133,4 +133,28 @@
     text-decoration: none;
 }
 
+.greybox {
+    padding: 16px;
+    background-color: #F3F3F3;
+    border: solid;
+    border-color: gray;
+}
 
+.bluebox {
+    background-color: #00497E;
+    border: solid;
+    color: white;
+    border-color: #00497E;
+}
+
+.controllerheader {
+    padding-left: 16px;
+    background-color: #F3F3F3;
+    border: solid;
+    border-color: gray;
+}
+
+.borderbox {
+    border: solid;
+    border-color: gray;
+}
