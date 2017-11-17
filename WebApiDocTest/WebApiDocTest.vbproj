@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -59,7 +62,26 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -106,12 +128,41 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.vb" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.vb" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.vb" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.vb" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.vb" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.vb" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.vb" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
     <Compile Include="Controllers\TestController.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -154,6 +205,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.vbhtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.vbhtml" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
